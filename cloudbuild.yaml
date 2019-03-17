@@ -15,4 +15,15 @@ steps:
       - '.'
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/$REPO_NAME:$BUILD_ID']
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args:
+      - set
+      - image
+      - deployment
+      - $_DEPLOYMENT
+      - $_DEPLOYMENT=gcr.io/$PROJECT_ID/$REPO_NAME:$BUILD_ID
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=$_CLUSTER_ZONE'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=$_CLUSTER_NAME'
+
 
