@@ -1,4 +1,3 @@
-
 FROM node:8-wheezy
 
 ARG buildtime_variable=staging

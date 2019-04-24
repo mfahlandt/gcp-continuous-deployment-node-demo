@@ -9,5 +9,5 @@ spec:
     - name:  server-production
       protocol: TCP
       port: 80
-      targetPort: 3000
+      targetPort: 4242
   type: LoadBalancer

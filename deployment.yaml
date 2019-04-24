@@ -2,8 +2,6 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: server-production
-  labels:
-    app: YOUR-PROJECT-ID
 spec:
   replicas: 2
   strategy:
@@ -19,9 +17,8 @@ spec:
       containers:
         - name: server
           image: gcr.io/PROJECT_ID/REPOSITORY:master
-          imagePullPolicy: Always
           ports:
-            - containerPort: 3000
+            - containerPort: 4242
           env:
             - name: NODE_ENV
               value: "production"
