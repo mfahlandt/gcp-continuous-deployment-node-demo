@@ -37,7 +37,7 @@ describe("Users", () => {
         .request(app)
         .get(`/users/${id}`)
         .end((err, res) => {
-          res.should.have.status(605);
+          res.should.have.status(404);
           done();
         });
     });

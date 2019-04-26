@@ -6,7 +6,7 @@ spec:
   selector:
     app:  server
   ports:
-    - name:  server-production
+    - name:  server
       protocol: TCP
       port: 80
       targetPort: 4242

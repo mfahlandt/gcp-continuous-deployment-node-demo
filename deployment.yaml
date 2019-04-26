@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: server-production
+  name: server
 spec:
   replicas: 2
   strategy:
@@ -16,7 +16,6 @@ spec:
     spec:
       containers:
         - name: server
-          image: gcr.io/PROJECT_ID/REPOSITORY:master
           ports:
             - containerPort: 4242
           env:
