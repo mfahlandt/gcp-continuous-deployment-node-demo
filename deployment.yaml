@@ -16,6 +16,7 @@ spec:
     spec:
       containers:
         - name: server
+          image: 'placeholder'
           ports:
             - containerPort: 4242
           env:
