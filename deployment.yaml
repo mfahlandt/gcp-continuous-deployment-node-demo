@@ -1,14 +1,28 @@
-apiVersion: extensions/v1beta1
+kind: Service
+apiVersion: v1
+metadata:
+  name: server
+  labels:
+    app: server
+spec:
+  selector:
+    app: server
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 8080
+  type: LoadBalancer
+---
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: server
+  labels:
+    app: server
 spec:
-  replicas: 2
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: server
   template:
     metadata:
       labels:
@@ -18,7 +32,4 @@ spec:
         - name: server
           image: 'placeholder'
           ports:
-            - containerPort: 4242
-          env:
-            - name: NODE_ENV
-              value: "production"
+            - containerPort: 8080
